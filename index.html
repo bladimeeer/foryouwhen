@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open When 💌</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #ffe4ec;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #ff6f91;
+            font-size: 36px;
+        }
+
+        .intro {
+            color: #ff8fab;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .button-container {
+            margin: 20px auto;
+            width: 85%;
+            max-width: 650px;
+        }
+
+        button {
+            padding: 12px 22px;
+            margin: 8px;
+            border: none;
+            border-radius: 25px;
+            background-color: #ffc2d1;
+            color: #ff4d6d;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 105, 135, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff8fab;
+            color: white;
+            transform: scale(1.07);
+        }
+
+        .message-box {
+            display: none;
+            margin: 35px auto;
+            padding: 25px;
+            width: 75%;
+            max-width: 600px;
+            background: #fff0f5;
+            border-radius: 25px;
+            box-shadow: 0 8px 20px rgba(255, 105, 135, 0.2);
+            color: #ff4d6d;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            font-size: 20px;
+            animation: floatUp 4s linear forwards;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #ff8fab;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🤍 For you, Gwen</h1>
+    <div class="intro">Little messages from Vlad 🤍</div>
+
+    <div class="button-container">
+        <button onclick="showMessage('sad')">Open when you're sad</button>
+        <button onclick="showMessage('miss')">Open when you miss me</button>
+        <button onclick="showMessage('motivation')">Open when you need motivation</button>
+        <button onclick="showMessage('sleep')">Open when you can't sleep</button>
+        <button onclick="showMessage('overthink')">Open when you're overthinking</button>
+        <button onclick="showMessage('stress')">Open when you're stressed</button>
+        <button onclick="showMessage('happy')">Open when you're happy</button>
+        <button onclick="showSecret()">Do you know I like you? 🫶</button>
+    </div>
+
+    <div id="message" class="message-box"></div>
+
+    <footer>Made by Vlad 🤍</footer>
+
+    <script>
+        function showMessage(type) {
+            const box = document.getElementById("message");
+
+            let messages = {
+                sad: "love, alam ko naman na minsan ang bigat ng lahat. Hindi mo kailangan ipilit na maging okay palagi. Pwede kang huminga, pwede kang mapagod, pwede kang malungkot. I'm always here for you, ha? Hindi kita iiwan kahit anong maramdaman mo. I lovee you soo much love ko!",
+                miss: "If you miss me, sana alam mo na mas miss kita! 🤍 - vlad",
+                motivation: "lovee, mas malakas at mas matalino ka kaysa iniisip mo. Kayang-kaya mo ‘to, I believe in you sobra. 🤍 - vlad",
+                sleep: "close your eyes, breathe slowly and pray. I hope you have the softest dreams tonight. 🤍 - vlad",
+                overthink: "love, don’t let your thoughts be too loud. You’re doing better than you think. Promise. 🤍 - vlad",
+                stress: "love, relax muna. One step at a time. Hindi mo kailangan dalhin lahat mag-isa. 🤍 - vlad",
+                happy: "seeing you happy makes me happy din. Bagay sayo yung smile mo sobra! 🤍 - vlad",
+            };
+
+            box.innerHTML = messages[type];
+            box.style.display = "block";
+
+            createHearts();
+        }
+
+        function showSecret() {
+            const box = document.getElementById("message");
+            box.innerHTML = "Okay… love, I don't like you but I LOVE YOU SO MUCH! 😳🤍 - vlad";
+            box.style.display = "block";
+            createHearts();
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 12; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "🤍";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.fontSize = (Math.random() * 18 + 14) + "px";
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }
+        }
+    </script>
+
+</body>
+</html>
