@@ -2,6 +2,10 @@
 <html>
 <head>
     <title>Open When 💌</title>
+
+    <!-- ✅ Important for mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             margin: 0;
@@ -9,56 +13,63 @@
             background-color: #ffe4ec;
             text-align: center;
             overflow-x: hidden;
+            padding: 20px;
         }
 
         h1 {
-            margin-top: 50px;
+            margin-top: 30px;
             color: #ff6f91;
-            font-size: 36px;
+            font-size: clamp(24px, 6vw, 36px);
         }
 
         .intro {
             color: #ff8fab;
-            margin-bottom: 20px;
-            font-size: 16px;
+            margin-bottom: 25px;
+            font-size: clamp(14px, 4vw, 16px);
         }
 
         .button-container {
-            margin: 20px auto;
-            width: 85%;
-            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         button {
-            padding: 12px 22px;
-            margin: 8px;
+            padding: 14px;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             background-color: #ffc2d1;
             color: #ff4d6d;
-            font-size: 14px;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(255, 105, 135, 0.2);
+            width: 100%;
+        }
+
+        button:active {
+            transform: scale(0.97);
         }
 
         button:hover {
             background-color: #ff8fab;
             color: white;
-            transform: scale(1.07);
         }
 
         .message-box {
             display: none;
-            margin: 35px auto;
-            padding: 25px;
-            width: 75%;
-            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
             background: #fff0f5;
             border-radius: 25px;
             box-shadow: 0 8px 20px rgba(255, 105, 135, 0.2);
             color: #ff4d6d;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.6;
         }
 
@@ -77,9 +88,21 @@
         }
 
         footer {
-            margin-top: 50px;
-            font-size: 14px;
+            margin-top: 40px;
+            font-size: 13px;
             color: #ff8fab;
+        }
+
+        /* Extra small screen adjustments */
+        @media (max-width: 400px) {
+            button {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .message-box {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -108,7 +131,7 @@
             const box = document.getElementById("message");
 
             let messages = {
-                sad: "love, alam ko naman na minsan ang bigat ng lahat. Hindi mo kailangan ipilit na maging okay palagi. Pwede kang huminga, pwede kang mapagod, pwede kang malungkot. I'm always here for you, ha? Hindi kita iiwan kahit anong maramdaman mo. I lovee you soo much love ko!",
+                sad: "love, alam ko naman na minsan ang bigat ng lahat. Hindi mo kailangan ipilit na maging okay palagi. Pwede kang huminga, pwede kang mapagod, pwede kang malungkot. I'm always here for you, ha? Hindi kita iiwan kahit anong maramdaman mo. I lovee you soo much love ko! 🤍 - vlad",
                 miss: "If you miss me, sana alam mo na mas miss kita! 🤍 - vlad",
                 motivation: "lovee, mas malakas at mas matalino ka kaysa iniisip mo. Kayang-kaya mo ‘to, I believe in you sobra. 🤍 - vlad",
                 sleep: "close your eyes, breathe slowly and pray. I hope you have the softest dreams tonight. 🤍 - vlad",
